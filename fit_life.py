@@ -64,9 +64,8 @@ def get_valid_age(prompt, min_age, max_age):
             return age
         else:
             print(
-                f'Возраст должен быть в диапазоне'
-                f'от {min_age} до {max_age}.'
-            )
+                f'Возраст должен быть в диапазоне '
+                f'от {min_age} до {max_age}.')
 
 
 def get_valid_weight(prompt, min_weight, max_weight):
@@ -75,7 +74,7 @@ def get_valid_weight(prompt, min_weight, max_weight):
     корректным числом в заданном диапазоне.
 
     Args:
-        prompt (str): Текст вопроса.
+        prompt (str): текст вопроса.
         min_weight (float): минимальный допустимый вес.
         max_weight (float): максимальный допустимый вес.
 
@@ -88,17 +87,15 @@ def get_valid_weight(prompt, min_weight, max_weight):
             weight = float(user_input)
         except ValueError:
             print(
-                f'Введите чисдо от '
-                f'{min_weight} до {max_weight} (например 70.5).'
-            )
+                f'Введите число от {min_weight} до {max_weight} '
+                f'(например, 70.5).')
             continue
         if min_weight <= weight <= max_weight:
             return weight
         else:
             print(
-                f'Вес должен быть в диапазоне '
-                f'от {min_weight} до {max_weight} (например 70.5).'
-            )
+                f'Вес должен быть в диапазоне от {min_weight} до {max_weight} '
+                f'(например 70.5).')
 
 
 def get_valid_height(prompt, min_height, max_height):
@@ -107,7 +104,7 @@ def get_valid_height(prompt, min_height, max_height):
     корректным числом в заданном диапазоне.
 
     Args:
-        prompt (str): Текст вопроса.
+        prompt (str): текст вопроса.
         min_height (float): минимальный допустимый рост.
         max_height (float): максимальный допустимый рост.
 
@@ -120,9 +117,8 @@ def get_valid_height(prompt, min_height, max_height):
             height = float(user_input)
         except ValueError:
             print(
-                f'Введите чисдо '
-                f'от {min_height} до {max_height} (например 1.75).'
-            )
+                f'Введите число от {min_height} до {max_height} '
+                f'(например 1.75).')
             continue
         if min_height <= height <= max_height:
             return height
@@ -197,12 +193,14 @@ water_l = round((user_weight * WATER_PER_KG) / ML_IN_LITER, 1)
 # Правильная форма слова "год"
 age_suffix = get_age_suffix(user_age)
 
+# Определяем категорию состояния массы тела по значению ИМТ
+bmi_category = get_bmi_category(bmi)
 
 # Шаг 3. Вывод результата
 print('\n' + '=' * 40)
 print(f'Отчёт для пользователя: {user_name} ({user_age} {age_suffix}).')
 print(f'Вес: {user_weight} кг. | Рост: {user_height} м.')
-print(f'Индекс массы тела (ИМТ): {bmi}. {get_bmi_category(bmi)}')
+print(f'Индекс массы тела (ИМТ): {bmi}. {bmi_category}')
 print(f'Рекомендуемая норма воды: {water_l} л. в день.')
 print('=' * 40)
 print('Расчёт окончен. Будьте здоровы!')
