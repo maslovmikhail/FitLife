@@ -34,10 +34,9 @@ def get_valid_name(prompt):
     """
     while True:
         name = input(prompt)
-        if len(name.strip()) != 0:
+        if name.strip():
             return name
-        else:
-            print('Имя не может быть пустым или состоять только из пробелов.')
+        print('Имя не может быть пустым или состоять только из пробелов.')
 
 
 def get_valid_age(prompt, min_age, max_age):
@@ -62,10 +61,9 @@ def get_valid_age(prompt, min_age, max_age):
             continue
         if min_age <= age <= max_age:
             return age
-        else:
-            print(
-                f'Возраст должен быть в диапазоне '
-                f'от {min_age} до {max_age}.')
+        print(
+            'Возраст должен быть в диапазоне '
+            f'от {min_age} до {max_age}.')
 
 
 def get_valid_weight(prompt, min_weight, max_weight):
@@ -87,15 +85,14 @@ def get_valid_weight(prompt, min_weight, max_weight):
             weight = float(user_input)
         except ValueError:
             print(
-                f'Введите число от {min_weight} до {max_weight} '
-                f'(например, 70.5).')
+                f'Введите число от {min_weight} '
+                f'до {max_weight} (например, 70.5).')
             continue
         if min_weight <= weight <= max_weight:
             return weight
-        else:
-            print(
-                f'Вес должен быть в диапазоне от {min_weight} до {max_weight} '
-                f'(например 70.5).')
+        print(
+            f'Вес должен быть в диапазоне от {min_weight} '
+            f'до {max_weight} (например 70.5).')
 
 
 def get_valid_height(prompt, min_height, max_height):
@@ -117,15 +114,14 @@ def get_valid_height(prompt, min_height, max_height):
             height = float(user_input)
         except ValueError:
             print(
-                f'Введите число от {min_height} до {max_height} '
-                f'(например 1.75).')
+                f'Введите число от {min_height} '
+                f'до {max_height} (например 1.75).')
             continue
         if min_height <= height <= max_height:
             return height
-        else:
-            print(
-                f'Рост должен быть в диапазоне '
-                f'от {min_height} до {max_height} (например 1.75).')
+        print(
+            f'Рост должен быть в диапазоне от {min_height} '
+            f'до {max_height} (например 1.75).')
 
 
 def get_age_suffix(user_age):
@@ -140,12 +136,11 @@ def get_age_suffix(user_age):
     """
     if 11 <= user_age % 100 <= 14:
         return 'лет'
-    elif user_age % 10 == 1:
+    if user_age % 10 == 1:
         return 'год'
-    elif 2 <= user_age % 10 <= 4:
+    if 2 <= user_age % 10 <= 4:
         return 'года'
-    else:
-        return 'лет'
+    return 'лет'
 
 
 def get_bmi_category(bmi):
@@ -160,17 +155,17 @@ def get_bmi_category(bmi):
     """
     if bmi < 16:
         return 'Выраженный дефицит массы тела.'
-    elif 16 <= bmi < 18.5:
+    if 16 <= bmi < 18.5:
         return 'Недостаточная (дефицит) масса тела.'
-    elif 18.5 <= bmi < 25:
+    if 18.5 <= bmi < 25:
         return 'Норма.'
-    elif 25 <= bmi < 30:
+    if 25 <= bmi < 30:
         return 'Избыточная масса тела (предожирение).'
-    elif 30 <= bmi < 35:
+    if 30 <= bmi < 35:
         return 'Ожирение 1 степени.'
-    elif 35 <= bmi < 40:
+    if 35 <= bmi < 40:
         return 'Ожирение 2 степени.'
-    elif bmi >= 40:
+    if bmi >= 40:
         return 'Ожирение 3 степени.'
 
 
